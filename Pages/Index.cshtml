@@ -1,0 +1,28 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <span asp-validation-for="Wpis.Number" class="text-danger"></span>
+    <form method="post">
+        <div class="form-row">
+            <div class="col">
+                <label asp-for="Wpis.Number"></label>
+                <input asp-for="Wpis.Number" /><br />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Zatwierdź</button>
+    </form>
+</div>
+@if(Model.Wpis!=null){
+    @if (Model.Wpis.Number < 1 || Model.Wpis.Number > 1000)
+    {
+    <p style="color:red;">podano niewłaściwą liczbe</p>}
+    else @Model.Wpis.Wynik
+
+
+
+            }
